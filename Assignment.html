@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form</title>
+  <script>
+    function validateForm(event) {
+
+      event.preventDefault();
+
+      const inputs = document.querySelectorAll('form input[type="text"][required]');
+      let allFilled = true;
+
+      inputs.forEach(function(input) {
+        if (input.value.trim() === "") {
+          allFilled = false;
+        }
+      });
+      if (!allFilled) {
+        alert("Please fill in all required fields.");
+      } else {
+        document.getElementById("myForm").submit();
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Form</h2>
+  <form id="myForm" onsubmit="validateForm(event)">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email" required><br><br>
+    <label for="phone number">Phone number:</label><br>
+    <input type="text" id="email" name="email" required><br><br>
+
+
+    <label for="city">City:</label><br>
+    <input type="text" id="city" name="city" required><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>
